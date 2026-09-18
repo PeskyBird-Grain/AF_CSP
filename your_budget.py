@@ -34,5 +34,5 @@ print(f"Your rent is ${rent:2f} and that is {int(rent//income*100)}% of your inc
 print(f"Your utilities are ${utilities:2f} and that is {int(utilities//income*100)}% of your income")
 print(f"Your groceries are ${groceries:2f} and that is {int(groceries//income*100)}% of your income")
 print(f"Your transportation is ${transport:2f} and that is {int(transport//income*100)}% of your income")
-print(f"You should save ${} a month, which is 10% of your income")
-print(f"You have ${income-(rent+utilities+groceries+transport):2f}")
+print(f"You should save ${int(income/100*10):2f} a month, which is 10% of your income")
+print(f"You have ${income-(rent+utilities+groceries+transport):2f} of spending money each month!")
