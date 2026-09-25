@@ -18,4 +18,18 @@ while True:
 print("GOOSE!!!!!")
 
 
-siblings = ["Billy", "Bob", "Joe", "Alex"]
+siblings = ["Alex", "Katie", "Andrew", "Tia", "Treyson", "Xavier", "Jake"]
+print(siblings[2])
+print(siblings)
+siblings.append("Jayshree")
+siblings.insert(3,"LaRose")
+print(siblings)
+siblings.pop(3)
+print(siblings)
+
+
+for number in range(1,11,2):
+    print(number)
+
+for item in (siblings):
+    print(item + " LaRose")
