@@ -16,7 +16,6 @@ shift = input("Enter a shift amount: ")
 
 def caeser_shift(message, decrypt_encrypt, shift):
     shifted_message = ""
-    print(f"Decript encrypt: {decrypt_encrypt}")
     if decrypt_encrypt == "decrypted":
         shift = -shift
     if decrypt_encrypt == "encrypted":
