@@ -9,16 +9,20 @@ d_e = input("Would you like to (E)ncript or (D)ecript a message? ")
 mess = input("Enter your message: ")
 shift = input("Enter a shift amount: ")
 
-#def caeser_shift(message, shift):
-    
-for letter in mess:
-    if letter.isalpha():
-        ord(letter) + shift
-        if ord(letter) > 122:
-            ord(letter) = 97 + ord(letter) - 122
-        elif ord(letter) < 97:
-            ord(letter) = 122 + ord(letter) - 97
-        if ord(letter) > 90:
-            ord(letter) = 97 + ord(letter) - 122
-        elif ord(letter) < 97:
-            ord(letter) = 122 + ord(letter) - 97
+def caeser_shift(message, shift):
+    for letter in message:
+        if letter.isalpha():
+            ord(letter) + shift
+            if letter.islower():
+                if ord(letter) > 122:
+                    ord(letter) - 25 + ord(letter) - 122
+                elif ord(letter) < 97:
+                    ord(letter) + 122 + ord(letter) - 97
+            if letter.isupper():
+                if ord(letter) > 90:
+                    ord(letter) - 25 + ord(letter) - 90
+                elif ord(letter) < 65:
+                    ord(letter) + 25 + ord(letter) - 65
+    return letter
+
+print(caeser_shift(mess, int(shift)))
