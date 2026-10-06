@@ -1,1 +1,1 @@
-Lantern,Velvet,Compass,Thunder,Meadow,Cinnamon,Glacier,Pebble,Telescope,Whistle
+Lantern,Velvet,Compass,Thunder,Meadow,Cinnamon,Glacier,Pebble,Telescope,Whistle,quartz,orchid,canyon,marble,ember,willow,comet,breeze,harbor,acorn,crystal,meadowlark,raindrop,flannel,orbit,thimble,cedar,echo,pepper,moonlight,paradox,canvas,sparrow,fern,velcro,harvest,starlight,ginger,river,apricot
