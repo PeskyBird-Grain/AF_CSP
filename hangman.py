@@ -1,39 +1,82 @@
 # AF, Hangman
 import random
 
-#create one file with 10 possible words
-
-#create another file that holds the win-loss count
-
-#read the information from the words file and make it a list. use split(",") on the content
 words_file = []
 with open("words.txt", "r") as file:
     content = file.read()
     words_file = content.split(",")
-#pull win-lose totals and save 2 seperate variables
+
 
 with open("stats.txt", "r") as file:
     content = file.read()
     wins = int(content[0])
     losses = int(content[2])
 print(f"Your stats: Wins: {wins}, Losses: {losses}")
-# save random.choice(name of list)
+
+
 word = random.choice(words_file).upper()
-print(word)
-# #wrong guesses
 wrong = 0
-# what's been guessed
 guessed = []
 
-# function displays hangman (needs # wrong)
-#def hangman()
-#"""_____
-#   |   |
-#   |   O
-#   |  /|\\
-#   |  / \\
-#   |_______
-#"""
+
+def hangman(wrong):
+    if wrong == 0:
+        print("Wrong guesses remaining: 6")
+        print("""_____
+|   |
+|
+|
+|
+|_______""")
+    if wrong == 1:
+        print("Wrong guesses remaining: 5")
+        print("""_____
+|   |
+|   O
+|
+|
+|_______""")
+    if wrong == 2:
+        print("Wrong guesses remaining: 4")
+        print("""_____
+|   |
+|   O
+|   |
+|
+|_______""")
+    if wrong == 3:
+        print("Wrong guesses remaining: 3")
+        print("""_____
+|   |
+|   O
+|  /|
+|
+|_______""")
+    if wrong == 4:
+        print("Wrong guesses remaining: 2")
+        print("""_____
+|   |
+|   O
+|  /|\\
+|
+|_______""")
+    if wrong == 5:
+        print("Wrong guesses remaining: 1")
+        print("""_____
+|   |
+|   O
+|  /|\\
+|  /
+|_______""")
+    if wrong == 6:
+        print("Wrong guesses remaining: 0")
+        print("""_____
+|   |
+|   O
+|  /|\\
+|  / \\
+|_______""")
+    return ""
 
 
 def display_word(word, guessed):
@@ -45,23 +88,29 @@ def display_word(word, guessed):
             display += "_"
     return display
 
+def letters_guessed(guessed):
+    characters = ""
+    for item in (guessed):
+        characters += item + ", "
+    return characters
 
 while True:
 
-    with open("stats.txt", "w") as file:
-        file.write(f"{wins},{losses}")
     displayed = display_word(word, guessed)
     if displayed != word:
-        print(wrong)    
+        print(hangman(wrong))
         print(display_word(word, guessed))
+        print(f"Guessed letters: {letters_guessed(guessed)}")
         guess_letter = input("Guess a letter: ").upper()
         if guess_letter not in guessed:
             if guess_letter not in word:
                 wrong += 1
-        guessed.append(guess_letter)
-
+            guessed.append(guess_letter)
     if displayed == word:
+        print(hangman(wrong))
         wins += 1
+        with open("stats.txt", "w") as file:
+            file.write(f"{wins},{losses}")
         print(f"Congratulations!! You guesed the word: {word}")
         print(f"Updated stats: Wins: {wins}, Losses: {losses}")
         while True:
@@ -77,7 +126,10 @@ while True:
         else:
             break
     if wrong >= 6:
+        print(hangman(wrong))
         losses += 1
+        with open("stats.txt", "w") as file:
+            file.write(f"{wins},{losses}")
         print(f"You ran out of guesses!! The word was: {word}")
         print(f"Updated stats: Wins: {wins}, Losses: {losses}")
         while True:
@@ -92,21 +144,3 @@ while True:
             guessed = []
         else:
             break
-    with open("stats.txt", "w") as file:
-        file.write(f"{wins},{losses}")
-#main game loop (while True)
-    #call function to show hangman
-    #print function call to show display word
-    #create variable and ask to guess letter
-    #add letter to list of guessed letters
-    #check if letter not in word
-        #increase wrong guesses
-    #check if display word is same as word
-        #you win
-        #increase win total
-        #play again?
-            #reset random word, wrong guess count, 
-#check if loss(6 wrong)
-    #tell loss
-    #tell word
-    #increased loss
